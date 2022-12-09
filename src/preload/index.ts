@@ -1,6 +1,9 @@
 import { contextBridge, ipcRenderer } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
 import { ElectronAPI } from '@electron-toolkit/preload'
+import { stringify } from 'querystring'
+import { IPC } from '../shared/constants/ipc';
+import { FetchAllDocumentsResponse } from '../shared/types/ipc';
 
 declare global {
   export interface Window {
@@ -10,8 +13,8 @@ declare global {
 }
 // Custom APIs for renderer
 const api = {
-  fetchDocuments(params: any) {
-    return ipcRenderer.invoke('fetch-documents', params);
+  fetchDocuments(): Promise<FetchAllDocumentsResponse> {
+    return ipcRenderer.invoke(IPC.DOCUMENTS.FETCH_ALL);
   }
 }
 
