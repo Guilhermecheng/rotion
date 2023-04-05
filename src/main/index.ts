@@ -1,5 +1,5 @@
 import { app, shell, BrowserWindow } from 'electron'
-import * as path from 'path'
+import * as path from 'node:path'
 import { createFileRoute, createURLRoute } from 'electron-router-dom';
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 

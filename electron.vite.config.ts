@@ -1,4 +1,4 @@
-import * as path from 'path';
+import * as path from 'node:path';
 import { defineConfig, externalizeDepsPlugin } from 'electron-vite';
 import tsconfigPathsPlugin from 'vite-tsconfig-paths';
 import react from '@vitejs/plugin-react';
@@ -12,7 +12,7 @@ export default defineConfig({
   main: {
     plugins: [tsconfigPaths, externalizeDepsPlugin()],
 
-    publicDir: path.resolve('resourses'),
+    publicDir: path.resolve('resources'),
   },
   preload: {
     plugins: [tsconfigPaths, externalizeDepsPlugin()],
