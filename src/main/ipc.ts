@@ -24,7 +24,7 @@ ipcMain.handle(IPC.DOCUMENTS.CREATE, async (): Promise<CreateDocumentResponse> =
 
     const document: Document = {
         id,
-        title: 'Untitled,'
+        title: 'Untitled'
     }
 
     store.set(`documents.${id}`, document);
@@ -43,5 +43,6 @@ ipcMain.handle(IPC.DOCUMENTS.SAVE, async (_, { id, title, content }: SaveDocumen
 })
 
 ipcMain.handle(IPC.DOCUMENTS.DELETE, async (_, { id }: DeleteDocumentRequest): Promise<void> => {
-    store.delete(`documents${id}`)
+    //@ts-ignore
+    store.delete(`documents.${id}`)
 })
