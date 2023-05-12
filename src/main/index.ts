@@ -4,6 +4,10 @@ import { createFileRoute, createURLRoute } from 'electron-router-dom';
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 
 import './ipc';
+import './store';
+import './tray';
+import { createTray } from './tray';
+import { createShortcuts } from './shortcuts';
 
 function createWindow(): void {
   // Create the browser window.
@@ -29,6 +33,9 @@ function createWindow(): void {
       sandbox: false,
     },
   })
+
+  createTray(mainWindow);
+  createShortcuts(mainWindow);
 
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()

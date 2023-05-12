@@ -8,5 +8,5 @@
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "workbench.colorTheme": "Halcyon"
+  "workbench.colorTheme": "Aura Dark"
 }
